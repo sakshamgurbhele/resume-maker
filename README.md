@@ -1,65 +1,93 @@
-# AI Resume Tailor
+# 📝 AI Resume Tailor (ResumeMaker)
 
-AI Resume Tailor (ResumeMaker) is a Next.js-based web application that helps you optimize your LaTeX resume for specific job descriptions. By leveraging OpenAI's advanced models (GPT-4o), it analyzes your resume against a target job description, identifies missing keywords, and automatically rewrites your resume content to dramatically improve your Applicant Tracking System (ATS) score.
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-412991?style=flat-square&logo=openai)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat-square&logo=tailwind-css)
 
-## Features
+**Bridge the gap between your resume and the recruiter's ATS.** AI Resume Tailor is a high-performance web application built with **Next.js 14** that helps job seekers optimize their LaTeX resumes. By leveraging **GPT-4o**, it intelligently analyzes job descriptions, identifies missing keywords, and rewrites resume bullet points while strictly preserving your LaTeX syntax.
 
-- **LaTeX Resume Parsing**: Paste your existing `.tex` source code directly into the app.
-- **Job Description Analysis**: Automatically extracts key technical skills, soft skills, and qualifications.
-- **ATS Scoring & Missing Keywords**: Evaluates your current resume and provides an ATS score out of 100, highlighting missing keywords.
-- **AI-Powered Optimization**: Naturally seamlessly integrates missing keywords into your bullet points without breaking LaTeX syntax.
-- **Live Progress Tracking**: Streamed progress let you see the AI's step-by-step optimization process.
-- **Export Options**: Download the optimized `.tex` source code or compile it directly into a `.pdf` file.
+---
 
-## Tech Stack
+## ✨ Key Features
 
-- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & [Framer Motion](https://www.framer.com/motion/)
-- **AI Integration**: [OpenAI SDK](https://platform.openai.com/docs/) (`gpt-4o` & `gpt-4o-mini`)
-- **Icons**: [Lucide React](https://lucide.dev/)
+* **🔍 LaTeX-Native Analysis**: No need to convert to Word. Paste your `.tex` source directly.
+* **📊 Real-time ATS Scoring**: Get an instant score out of 100 based on job description relevancy.
+* **🧠 Intelligent Keyword Injection**: Naturally weaves technical and soft skills into your experience.
+* **⚡ Live Streamed Progress**: Watch the AI’s "thought process" as it identifies gaps and rewrites sections.
+* **📄 Dual Export**: Download the refined `.tex` source or a compiled PDF in one click.
 
-## Prerequisites
+---
 
-Before you begin, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- An active [OpenAI API Key](https://platform.openai.com/api-keys)
+## 🛠️ Tech Stack
 
-*(Note: LaTeX compilation requires pdflatex or a similar compiler available on the host machine/server for the PDF generation feature to work via `/api/compile-pdf`)*
+| Layer | Technology |
+| :--- | :--- |
+| **Framework** | [Next.js 14](https://nextjs.org/) (App Router) |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) & [Framer Motion](https://www.framer.com/motion/) |
+| **AI Engine** | [OpenAI SDK](https://platform.openai.com/docs/) (`gpt-4o` & `gpt-4o-mini`) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
 
-## Setup Instructions
+---
 
-### 1. Clone the repository
-\`\`\`bash
-git clone <your-repo-url>
-cd ResumeMaker
-\`\`\`
+## 🚀 Getting Started
 
-### 2. Install Dependencies
-\`\`\`bash
-npm install
-\`\`\`
+### Prerequisites
+* **Node.js**: v18.0+ 
+* **OpenAI API Key**: [Get one here](https://platform.openai.com/api-keys)
+* **LaTeX Environment**: (Optional) `pdflatex` must be installed on your host machine/server for the PDF generation feature.
 
-### 3. Environment Configuration
-Create a \`.env.local\` file in the root of your project and add your OpenAI API Key:
-\`\`\`env
-OPENAI_API_KEY=your_openai_api_key_here
-\`\`\`
+### Installation
 
-### 4. Run the Development Server
-\`\`\`bash
-npm run dev
-\`\`\`
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/sakshamgurbhele/resume-generator.git](https://github.com/sakshamgurbhele/resume-generator.git)
+    cd ResumeMaker
+    ```
 
-## Usage Guide
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-1. **Input Original Resume**: Paste your LaTeX (`.tex`) resume code into the "Original LaTeX Resume" text area.
-2. **Input Job Description**: Paste the target job description into the "Job Description" text area.
-3. **Optimize**: Click the "Start Optimization" button.
-4. **Review Results**: Watch the progress log as the AI analyzes and rewrites your resume. Once complete, your new ATS score will be displayed.
-5. **Download**: Choose to download either the raw `.tex` file or the compiled `PDF` file using the provided buttons.
+3.  **Configure Environment Variables**
+    Create a `.env.local` file in the root directory:
+    ```env
+    OPENAI_API_KEY=your_openai_api_key_here
+    ```
 
-## Troubleshooting
+4.  **Launch the Development Server**
+    ```bash
+    npm run dev
+    ```
+    Visit `http://localhost:3000` to start optimizing.
 
-- **PDF Compilation Fails**: Ensure that the optimized LaTeX code doesn't contain invalid syntax that breaking compilation. Also, ensure the host environment running the Next.js server has a valid LaTeX distribution (like TeX Live) installed.
-- **API Errors**: Ensure your `OPENAI_API_KEY` is properly configured and has sufficient quota/billing enabled.
+---
+
+## 📖 Usage Guide
+
+1.  **Input**: Paste your raw LaTeX code and the target job description.
+2.  **Analyze**: Click **Start Optimization**. The AI extracts key requirements and compares them to your content.
+3.  **Refine**: The system generates an ATS-optimized version of your resume in real-time.
+4.  **Export**: Review the changes and download your updated `.tex` file or the compiled `.pdf`.
+
+---
+
+## ⚠️ Important Notes
+
+> [!CAUTION]
+> **API Security**: Never commit your `.env.local` file. Ensure it is listed in your `.gitignore` to protect your OpenAI credits.
+
+* **PDF Compilation**: If PDF generation fails, ensure your LaTeX code doesn't use custom packages that are missing from your server's TeX distribution.
+* **Keyword Density**: While the AI focuses on ATS optimization, always perform a final manual review to ensure the "human" tone of your achievements remains intact.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
